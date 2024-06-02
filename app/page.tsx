@@ -1,7 +1,11 @@
-export const dynamic = 'force-dynamic'
+import Landing from "@/app/components/landing";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <p>Hello world</p>
-  )
+  const { userId } = auth();
+
+  if (userId) redirect("/dashboard");
+
+  return <Landing />;
 }

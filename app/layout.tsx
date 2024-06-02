@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 
+
 export const metadata = {
   metadataBase: new URL("https://postgres-prisma.vercel.app"),
   title: "Vercel Postgres Demo with Prisma",
@@ -30,12 +31,6 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.variable}>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
           {children}
         </body>
       </html>
