@@ -7,6 +7,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 
 export const metadata = {
@@ -31,7 +32,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.variable}>
+          <EdgeStoreProvider>
           {children}
+          </EdgeStoreProvider>
         </body>
       </html>
     </ClerkProvider>
