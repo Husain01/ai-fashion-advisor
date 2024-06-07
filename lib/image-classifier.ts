@@ -27,7 +27,7 @@ export const classifyImage = async(url:string)=> {
 
             type: "text",
 
-            text: "Check the image if it has clothes. Then check if it's an outfit picture. You are a fashion expert, give suggestions based on the outfit and how can you enhance it, or either pair it with other clothing items, accessories, etc. Keep it short and crisp.",
+            text: "Check the image if it has clothes. Then check if it's an outfit picture. You are a fashion expert, give suggestions based on the outfit and how can you enhance it, or either pair it with other clothing items, accessories, etc. Keep it short and crisp. Give the response in plain text without markdown or next lines.",
 
           },
 
@@ -49,12 +49,15 @@ export const classifyImage = async(url:string)=> {
 
     ],
 
-    stream: true,
 
-    max_tokens: 400,
+    max_tokens: 100,
 
     // stream the response
 
 });
-return OpenAIStream(completion);
+// const completedText = completion.choices.map(choice => choice.message.content?.[0]).join("");
+
+const completedText = completion.choices.map(choice => choice.message.content)
+return completedText
+// return OpenAIStream(completion);
 }

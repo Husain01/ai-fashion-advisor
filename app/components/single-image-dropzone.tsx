@@ -22,6 +22,7 @@ type InputProps = {
   className?: string;
   value?: File | string;
   onChange?: (file?: File) => void | Promise<void>;
+  // onChange?: (e?: React.ChangeEvent<HTMLInputElement>) => void | Promise<void>;
   disabled?: boolean;
   dropzoneOptions?: Omit<DropzoneOptions, 'disabled'>;
 };
